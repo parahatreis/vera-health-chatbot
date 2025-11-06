@@ -1,3 +1,4 @@
+import { SSE_CONFIG } from '@/constants/sse-config';
 import { ProgressStep, QAPair, Section } from '@/types';
 import { mergeSections, parseSSENode, parseStreamingSections, parseTaggedContent } from '@/utils/content-parser';
 import { useCallback, useEffect, useRef, useState } from 'react';
@@ -25,36 +26,15 @@ interface ChatbotActions {
   reset: () => void;
 }
 
-const API_ENDPOINT = 'https://vera-assignment-api.vercel.app/api/stream';
-const BATCH_UPDATE_MS = 25; // 16-33ms micro-debounce for batched UI updates
-const MAX_RETRY_ATTEMPTS = 3;
-const RETRY_DELAYS = [1000, 2000, 4000]; // Exponential backoff: 1s, 2s, 4s
-const MAX_QA_HISTORY = 100; // Prevent memory issues on older devices
-
-// Mock data for initial display
-const MOCK_QA_HISTORY: QAPair[] = [
-  // {
-  //   id: 'mock-1',
-  //   question: 'What are the first-line treatments for hypertension?',
-  //   answer: 'The first-line treatments for hypertension typically include:\n\n1. **Thiazide diuretics** (e.g., hydrochlorothiazide, chlorthalidone) - Often the first choice, especially for uncomplicated hypertension\n\n2. **ACE inhibitors** (e.g., lisinopril, enalapril) - Particularly beneficial for patients with diabetes or chronic kidney disease\n\n3. **Angiotensin II receptor blockers (ARBs)** (e.g., losartan, valsartan) - Alternative to ACE inhibitors, especially if ACE inhibitors cause cough\n\n4. **Calcium channel blockers** (e.g., amlodipine, nifedipine) - Effective for elderly patients and those of African descent\n\nThe choice depends on patient-specific factors including age, ethnicity, comorbidities, and contraindications. Lifestyle modifications (diet, exercise, weight loss, reduced sodium intake) should always accompany pharmacological treatment.',
-  // },
-  // {
-  //   id: 'mock-2',
-  //   question: 'How do you diagnose and manage acute appendicitis?',
-  //   answer: '**Diagnosis of Acute Appendicitis:**\n\n*Clinical Assessment:*\n- Classic presentation: periumbilical pain migrating to right lower quadrant (McBurney\'s point)\n- Associated symptoms: anorexia, nausea, vomiting, low-grade fever\n- Physical exam: rebound tenderness, guarding, Rovsing\'s sign, psoas sign\n\n*Laboratory Tests:*\n- Elevated WBC count (typically 10,000-18,000/μL)\n- Elevated C-reactive protein (CRP)\n- Urinalysis to rule out UTI\n\n*Imaging:*\n- **CT scan** with IV contrast (gold standard, 95% sensitivity)\n- **Ultrasound** (preferred in children and pregnant women)\n- **MRI** (alternative in pregnancy if ultrasound inconclusive)\n\n**Management:**\n\n*Conservative:*\n- NPO (nothing by mouth)\n- IV fluids and electrolyte management\n- IV antibiotics (e.g., ceftriaxone + metronidazole)\n- Pain management\n\n*Surgical:*\n- **Appendectomy** (laparoscopic preferred over open)\n- Timing: within 24 hours of diagnosis\n- Antibiotics continued post-operatively if perforation present\n\nNote: Some uncomplicated cases may be managed with antibiotics alone, though surgery remains the definitive treatment.',
-  // },
-];
-
 export function useChatbotState(): [ChatbotState, ChatbotActions] {
   const [status, setStatus] = useState<ChatbotStatus>('idle');
-  const [qaHistory, setQaHistory] = useState<QAPair[]>(MOCK_QA_HISTORY);
+  const [qaHistory, setQaHistory] = useState<QAPair[]>([]);
   const [currentQuestion, setCurrentQuestion] = useState('');
   const [currentSections, setCurrentSections] = useState<Section[]>([]);
   const [currentProgressSteps, setCurrentProgressSteps] = useState<ProgressStep[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [retryCount, setRetryCount] = useState(0);
 
-  // Refs for SSE connection and pending text buffer
   const eventSourceRef = useRef<EventSource | null>(null);
   const pendingTextRef = useRef<string>('');
   const updateTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -148,7 +128,7 @@ export function useChatbotState(): [ChatbotState, ChatbotActions] {
 
     const now = Date.now();
     const elapsed = now - lastUpdateRef.current;
-    const delay = Math.max(0, BATCH_UPDATE_MS - elapsed);
+    const delay = Math.max(0, SSE_CONFIG.BATCH_UPDATE_MS - elapsed);
 
     updateTimerRef.current = setTimeout(() => {
       updateStreamingDisplay(); // Just update display, don't parse yet
@@ -161,7 +141,7 @@ export function useChatbotState(): [ChatbotState, ChatbotActions] {
   const attemptConnection = useCallback(
     (question: string, attempt: number = 0) => {
       const encodedPrompt = encodeURIComponent(question);
-      const url = `${API_ENDPOINT}?prompt=${encodedPrompt}`;
+      const url = `${SSE_CONFIG.API_ENDPOINT}?prompt=${encodedPrompt}`;
 
       try {
         const es = new EventSource(url, {
@@ -259,7 +239,7 @@ export function useChatbotState(): [ChatbotState, ChatbotActions] {
                           cleanup();
                           setStatus('done');
                         }
-                      }, 500);
+                      }, SSE_CONFIG.COMPLETION_TIMEOUT_MS);
                     }
                     break;
                 }
@@ -274,10 +254,10 @@ export function useChatbotState(): [ChatbotState, ChatbotActions] {
           cleanup();
           
           // Attempt retry if we haven't exceeded max attempts
-          if (attempt < MAX_RETRY_ATTEMPTS) {
-            const delay = RETRY_DELAYS[attempt];
+          if (attempt < SSE_CONFIG.MAX_RETRY_ATTEMPTS) {
+            const delay = SSE_CONFIG.RETRY_DELAYS[attempt];
             setRetryCount(attempt + 1);
-            setError(`Connection lost. Retrying in ${delay / 1000}s... (Attempt ${attempt + 1}/${MAX_RETRY_ATTEMPTS})`);
+            setError(`Connection lost. Retrying in ${delay / 1000}s... (Attempt ${attempt + 1}/${SSE_CONFIG.MAX_RETRY_ATTEMPTS})`);
             
             retryTimeoutRef.current = setTimeout(() => {
               attemptConnection(question, attempt + 1);
@@ -315,8 +295,8 @@ export function useChatbotState(): [ChatbotState, ChatbotActions] {
       if (!trimmed) return;
       
       // Check memory limits
-      if (qaHistory.length >= MAX_QA_HISTORY) {
-        setError(`Maximum history limit reached (${MAX_QA_HISTORY} items). Please clear some history.`);
+      if (qaHistory.length >= SSE_CONFIG.MAX_QA_HISTORY) {
+        setError(`Maximum history limit reached (${SSE_CONFIG.MAX_QA_HISTORY} items). Please clear some history.`);
         return;
       }
 
@@ -372,7 +352,7 @@ export function useChatbotState(): [ChatbotState, ChatbotActions] {
   }, [cleanup]);
 
   // Derived flags
-  const canAsk = (status === 'idle' || status === 'done' || status === 'error') && qaHistory.length < MAX_QA_HISTORY;
+  const canAsk = (status === 'idle' || status === 'done' || status === 'error') && qaHistory.length < SSE_CONFIG.MAX_QA_HISTORY;
   const canStop = status === 'streaming' || status === 'connecting';
   const isBusy = status === 'connecting' || status === 'streaming';
 

@@ -1,22 +1,9 @@
+import { DEFAULT_COLLAPSE_STATE, SECTION_CONFIG, STREAM_TAGS } from '@/constants/section-types';
 import { NodeType, ProgressStep, Section } from '@/types';
 
-const SECTION_TITLE_MAP: Record<string, { type: Section['type']; title: string }> = {
-  guideline: { type: 'guideline', title: 'Guidelines' },
-  drug: { type: 'drug', title: 'Drug Information' },
-  think: { type: 'think', title: 'Reasoning' },
-};
+const SECTION_TITLE_MAP = SECTION_CONFIG;
 
-const DEFAULT_COLLAPSE_STATE: Record<Section['type'], boolean> = {
-  answer: false,
-  guideline: false,
-  drug: false,
-  think: false,
-  unknown: true,
-};
-
-const STREAM_TAGS = ['guideline', 'drug', 'think'];
-
-function getSectionTitle(type: Section['type'], rawTag: string) {
+function getSectionTitle(type: Section['type'], rawTag: string): string {
   if (type === 'unknown') {
     return rawTag.charAt(0).toUpperCase() + rawTag.slice(1);
   }
@@ -24,6 +11,7 @@ function getSectionTitle(type: Section['type'], rawTag: string) {
   return SECTION_TITLE_MAP[type]?.title ?? rawTag;
 }
 
+// Ensures all opening tags have corresponding closing tags
 function ensureBalancedStreamingTags(text: string): string {
   let balanced = text;
 
@@ -42,6 +30,7 @@ function ensureBalancedStreamingTags(text: string): string {
   return balanced;
 }
 
+// Removes incomplete tags from the end of streaming text
 function sanitizeStreamingText(text: string): string {
   if (!text) {
     return text;
@@ -156,6 +145,7 @@ export function parseTaggedContent(text: string): Section[] {
   return sections;
 }
 
+// Parses streaming text, handling partial/unbalanced tags
 export function parseStreamingSections(text: string): Section[] {
   const sanitized = sanitizeStreamingText(text);
 

@@ -1,10 +1,11 @@
-import botImage from '@/assets/images/bot.png';
 import { Colors, Spacing, Typography } from '@/constants/theme';
 import { QAPair } from '@/types';
 import { memo } from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { ErrorBanner } from './error-banner';
 import { QAItem } from './qa-item';
+
+const botImage = require('@/assets/images/bot.png');
 
 // List item types
 export type ListItem =

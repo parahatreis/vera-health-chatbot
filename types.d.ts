@@ -58,3 +58,12 @@ export interface QAPair {
   progressSteps: ProgressStep[];
 }
 
+// Generic async state pattern for type-safe loading states
+export type AsyncState<T, E = Error> =
+  | { status: 'idle' }
+  | { status: 'loading'; progress?: number }
+  | { status: 'success'; data: T }
+  | { status: 'error'; error: E };
+
+export type SSEConnectionState = AsyncState<EventSource>;
+

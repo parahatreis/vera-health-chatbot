@@ -29,32 +29,32 @@ export const QAItem = memo(function QAItem({
   );
   const wasLastRef = useRef(isLast);
 
-  // Auto-collapse this QA when a new streaming starts
+  // Manage collapse state based on streaming status and position
   useEffect(() => {
+    // Auto-collapse when new streaming starts (and this isn't the active one)
     if (shouldAutoCollapse && !isStreaming) {
       setIsCollapsed(true);
+      return;
     }
-  }, [shouldAutoCollapse, isStreaming]);
 
-  useEffect(() => {
+    // Always expand during streaming
     if (isStreaming) {
       setIsCollapsed(false);
+      return;
     }
-  }, [isStreaming]);
 
-  useEffect(() => {
+    // Collapse when no longer the last item
     if (wasLastRef.current && !isLast) {
       setIsCollapsed(true);
     }
 
-    wasLastRef.current = isLast;
-  }, [isLast]);
-
-  useEffect(() => {
+    // Expand if this is the last item and not streaming
     if (isLast && !isStreaming) {
       setIsCollapsed(false);
     }
-  }, [isLast, isStreaming]);
+
+    wasLastRef.current = isLast;
+  }, [shouldAutoCollapse, isStreaming, isLast]);
 
   // Don't allow collapsing if streaming or no sections yet
   const canCollapse = !isStreaming && sections.length > 0;

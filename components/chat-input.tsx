@@ -1,6 +1,7 @@
+import { APP_CONFIG } from '@/constants/app-config';
 import { Colors, Spacing, Typography } from '@/constants/theme';
-import { useEffect, useState } from 'react';
-import { Keyboard, StyleSheet, TextInput, View } from 'react-native';
+import { useKeyboardVisibility } from '@/hooks/use-keyboard-visibility';
+import { StyleSheet, TextInput, View } from 'react-native';
 import { IconButton } from './icon-button';
 
 interface ChatInputProps {
@@ -13,22 +14,7 @@ interface ChatInputProps {
 }
 
 export function ChatInput({ value, onChangeText, onSubmit, onCancel, disabled, isStreaming }: ChatInputProps) {
-  const [isKeyboardVisible, setIsKeyboardVisible] = useState(false);
-
-  useEffect(() => {
-    const showSubscription = Keyboard.addListener('keyboardDidShow', () => {
-      setIsKeyboardVisible(true);
-    });
-    const hideSubscription = Keyboard.addListener('keyboardDidHide', () => {
-      setIsKeyboardVisible(false);
-    });
-
-    return () => {
-      showSubscription.remove();
-      hideSubscription.remove();
-    };
-  }, []);
-
+  const isKeyboardVisible = useKeyboardVisibility();
   const hasText = value.trim().length > 0;
 
   return (
@@ -44,7 +30,7 @@ export function ChatInput({ value, onChangeText, onSubmit, onCancel, disabled, i
           editable={!disabled && !isStreaming}
           returnKeyType="default"
           multiline
-          maxLength={500}
+          maxLength={APP_CONFIG.MAX_QUESTION_LENGTH}
           accessibilityLabel="Question input"
           accessibilityHint="Enter your clinical question"
         />
@@ -104,7 +90,6 @@ export function ChatInput({ value, onChangeText, onSubmit, onCancel, disabled, i
 
 const styles = StyleSheet.create({
   container: {
-    // height: 120,
     borderTopLeftRadius: 24,
     borderTopRightRadius: 24,
     shadowColor: Colors.border,
