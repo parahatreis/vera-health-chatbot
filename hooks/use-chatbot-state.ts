@@ -1,5 +1,5 @@
 import { ProgressStep, QAPair, Section } from '@/types';
-import { mergeSections, parseSSENode, parseTaggedContent } from '@/utils/content-parser';
+import { mergeSections, parseSSENode, parseStreamingSections, parseTaggedContent } from '@/utils/content-parser';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import EventSource from 'react-native-sse';
 
@@ -127,15 +127,16 @@ export function useChatbotState(): [ChatbotState, ChatbotActions] {
 
   // Update display during streaming without parsing tags
   const updateStreamingDisplay = useCallback(() => {
-    if (pendingTextRef.current) {
-      // During streaming, show a single "Answer" section with accumulated text
-      setCurrentSections([{
-        id: 'streaming-answer',
-        type: 'answer',
-        title: 'Answer',
-        content: pendingTextRef.current,
-        isCollapsed: false,
-      }]);
+    const pendingText = pendingTextRef.current;
+
+    if (!pendingText) {
+      return;
+    }
+
+    const streamingSections = parseStreamingSections(pendingText);
+
+    if (streamingSections.length > 0) {
+      setCurrentSections(streamingSections);
     }
   }, []);
 

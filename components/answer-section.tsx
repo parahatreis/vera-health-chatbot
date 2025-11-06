@@ -20,8 +20,14 @@ export const AnswerSection = memo(function AnswerSection({
   // Other sections (guideline, drug, think, etc.) can be collapsed
   const canCollapse = section.type !== 'answer' && !isStreaming && section.content.length > 0;
 
+  // Determine if this section should have a background
+  const hasBackground = section.type !== 'answer';
+  const containerStyle = hasBackground 
+    ? [styles.container, styles.containerWithBackground] 
+    : styles.container;
+
   return (
-    <View style={styles.container}>
+    <View style={containerStyle}>
       {/* Section Header - only show for non-answer sections */}
       {section.type !== 'answer' && (
         <TouchableOpacity
@@ -62,6 +68,13 @@ export const AnswerSection = memo(function AnswerSection({
 
 const styles = StyleSheet.create({
   container: {
+    marginBottom: Spacing.md,
+  },
+  containerWithBackground: {
+    paddingVertical: Spacing.sm,
+    paddingHorizontal: Spacing.sm,
+    backgroundColor: Colors.chipThinking,
+    borderRadius: 8,
     marginBottom: Spacing.md,
   },
   header: {

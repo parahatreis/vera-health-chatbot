@@ -1,7 +1,7 @@
 import { Colors, Spacing, Typography } from '@/constants/theme';
 import { ProgressStep, Section } from '@/types';
 import { Ionicons } from '@expo/vector-icons';
-import { memo, useCallback, useState } from 'react';
+import { memo, useCallback, useEffect, useRef, useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { AnswerSection } from './answer-section';
 import { ProgressSteps } from './progress-steps';
@@ -12,6 +12,7 @@ interface QAItemProps {
   progressSteps: ProgressStep[];
   isStreaming: boolean;
   isLast: boolean;
+  shouldAutoCollapse?: boolean;
 }
 
 export const QAItem = memo(function QAItem({
@@ -20,11 +21,40 @@ export const QAItem = memo(function QAItem({
   progressSteps,
   isStreaming,
   isLast,
+  shouldAutoCollapse = false,
 }: QAItemProps) {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(() => !isLast);
   const [sectionCollapseStates, setSectionCollapseStates] = useState<Map<string, boolean>>(
     new Map()
   );
+  const wasLastRef = useRef(isLast);
+
+  // Auto-collapse this QA when a new streaming starts
+  useEffect(() => {
+    if (shouldAutoCollapse && !isStreaming) {
+      setIsCollapsed(true);
+    }
+  }, [shouldAutoCollapse, isStreaming]);
+
+  useEffect(() => {
+    if (isStreaming) {
+      setIsCollapsed(false);
+    }
+  }, [isStreaming]);
+
+  useEffect(() => {
+    if (wasLastRef.current && !isLast) {
+      setIsCollapsed(true);
+    }
+
+    wasLastRef.current = isLast;
+  }, [isLast]);
+
+  useEffect(() => {
+    if (isLast && !isStreaming) {
+      setIsCollapsed(false);
+    }
+  }, [isLast, isStreaming]);
 
   // Don't allow collapsing if streaming or no sections yet
   const canCollapse = !isStreaming && sections.length > 0;

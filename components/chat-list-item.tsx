@@ -49,6 +49,7 @@ export const ChatListItem = memo(function ChatListItem({
           progressSteps={item.data.progressSteps}
           isStreaming={item.data.id === 'current' && isBusy}
           isLast={item.isLast}
+          shouldAutoCollapse={item.data.id !== 'current' && isBusy}
         />
       );
 

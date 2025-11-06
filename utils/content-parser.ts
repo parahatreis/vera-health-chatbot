@@ -1,5 +1,66 @@
 import { NodeType, ProgressStep, Section } from '@/types';
 
+const SECTION_TITLE_MAP: Record<string, { type: Section['type']; title: string }> = {
+  guideline: { type: 'guideline', title: 'Guidelines' },
+  drug: { type: 'drug', title: 'Drug Information' },
+  think: { type: 'think', title: 'Reasoning' },
+};
+
+const DEFAULT_COLLAPSE_STATE: Record<Section['type'], boolean> = {
+  answer: false,
+  guideline: false,
+  drug: false,
+  think: false,
+  unknown: true,
+};
+
+const STREAM_TAGS = ['guideline', 'drug', 'think'];
+
+function getSectionTitle(type: Section['type'], rawTag: string) {
+  if (type === 'unknown') {
+    return rawTag.charAt(0).toUpperCase() + rawTag.slice(1);
+  }
+
+  return SECTION_TITLE_MAP[type]?.title ?? rawTag;
+}
+
+function ensureBalancedStreamingTags(text: string): string {
+  let balanced = text;
+
+  STREAM_TAGS.forEach((tag) => {
+    const openRegex = new RegExp(`<${tag}>`, 'gi');
+    const closeRegex = new RegExp(`</${tag}>`, 'gi');
+    const openCount = (balanced.match(openRegex) || []).length;
+    const closeCount = (balanced.match(closeRegex) || []).length;
+    const diff = openCount - closeCount;
+
+    if (diff > 0) {
+      balanced += `</${tag}>`.repeat(diff);
+    }
+  });
+
+  return balanced;
+}
+
+function sanitizeStreamingText(text: string): string {
+  if (!text) {
+    return text;
+  }
+
+  const partialTagMatch = text.match(/<\/?([a-zA-Z]+)?$/);
+
+  if (partialTagMatch) {
+    const partialName = (partialTagMatch[1] || '').toLowerCase();
+    const matchesKnown = STREAM_TAGS.some((tag) => tag.startsWith(partialName));
+
+    if (matchesKnown && typeof partialTagMatch.index === 'number') {
+      return text.slice(0, partialTagMatch.index);
+    }
+  }
+
+  return text;
+}
+
 /**
  * Parse tagged content into sections.
  * Extracts <guideline>, <drug>, and unknown tags, plus untagged "Answer" section.
@@ -52,22 +113,16 @@ export function parseTaggedContent(text: string): Section[] {
     
     // Add the tagged section
     const tagLower = tagMatch.tagName.toLowerCase();
-    const sectionType = ['guideline', 'drug', 'think'].includes(tagLower)
-      ? (tagLower as 'guideline' | 'drug' | 'think')
-      : 'unknown';
-    
-    const title = 
-      sectionType === 'guideline' ? 'Guidelines' :
-      sectionType === 'drug' ? 'Drug Information' :
-      sectionType === 'think' ? 'Reasoning' :
-      tagMatch.tagName.charAt(0).toUpperCase() + tagMatch.tagName.slice(1);
+    const mapping = SECTION_TITLE_MAP[tagLower];
+    const sectionType = mapping?.type ?? 'unknown';
+    const title = mapping?.title ?? getSectionTitle(sectionType, tagMatch.tagName);
     
     sections.push({
       id: `${sectionType}-${sections.length}`,
       type: sectionType,
       title,
       content: tagMatch.content,
-      isCollapsed: true, // Tagged sections start collapsed
+      isCollapsed: DEFAULT_COLLAPSE_STATE[sectionType],
     });
     
     lastIndex = tagMatch.endIndex;
@@ -99,6 +154,18 @@ export function parseTaggedContent(text: string): Section[] {
   }
   
   return sections;
+}
+
+export function parseStreamingSections(text: string): Section[] {
+  const sanitized = sanitizeStreamingText(text);
+
+  if (!sanitized || sanitized.trim().length === 0) {
+    return [];
+  }
+
+  const balanced = ensureBalancedStreamingTags(sanitized);
+
+  return parseTaggedContent(balanced);
 }
 
 /**

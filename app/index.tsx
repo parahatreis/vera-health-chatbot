@@ -19,6 +19,9 @@ export default function ChatbotScreen() {
   const [visibleHistoryCount, setVisibleHistoryCount] = useState(50);
   const flashListRef = useRef<FlashListRef<ListItem>>(null);
   const lastAnnouncementRef = useRef<number>(0);
+  const hasManuallyScrolledRef = useRef<boolean>(false);
+  const lastContentOffsetRef = useRef<number>(0);
+  const isAutoScrollingRef = useRef<boolean>(false);
 
   // Rate-limited accessibility announcements (max 1/second)
   const announce = (message: string) => {
@@ -47,14 +50,26 @@ export default function ChatbotScreen() {
     }
   }, [state.currentSections, state.status]);
 
-  // Auto-scroll when sections update
+  // Auto-scroll when sections update (only if user hasn't manually scrolled)
   useEffect(() => {
-    if (state.currentSections.length > 0 || state.qaHistory.length > 0) {
+    if ((state.currentSections.length > 0 || state.qaHistory.length > 0) && !hasManuallyScrolledRef.current) {
       setTimeout(() => {
+        isAutoScrollingRef.current = true;
         flashListRef.current?.scrollToEnd({ animated: true });
+        // Reset the auto-scrolling flag after animation completes
+        setTimeout(() => {
+          isAutoScrollingRef.current = false;
+        }, 500);
       }, 100);
     }
   }, [state.currentSections, state.qaHistory.length]);
+
+  // Reset manual scroll flag when new question starts or streaming finishes
+  useEffect(() => {
+    if (state.status === 'connecting' || state.status === 'idle') {
+      hasManuallyScrolledRef.current = false;
+    }
+  }, [state.status]);
 
   // Load more messages handler
   const handleLoadMore = () => {
@@ -134,6 +149,43 @@ export default function ChatbotScreen() {
   );
   
   const getItemType = (item: ListItem) => item.type;
+
+  // Handle scroll events to detect manual scrolling
+  const handleScroll = (event: any) => {
+    // Ignore scroll events during auto-scrolling
+    if (isAutoScrollingRef.current) {
+      lastContentOffsetRef.current = event.nativeEvent.contentOffset.y;
+      return;
+    }
+
+    const {
+      contentOffset,
+      contentSize,
+      layoutMeasurement,
+    } = event.nativeEvent;
+
+    const currentOffset = contentOffset.y;
+    const scrollDelta = Math.abs(currentOffset - lastContentOffsetRef.current);
+    
+    // Consider it manual scroll if the user scrolled more than 10 pixels
+    if (scrollDelta > 10) {
+      hasManuallyScrolledRef.current = true;
+    }
+    
+    const visibleBottom = currentOffset + layoutMeasurement.height;
+    const remaining = contentSize.height - visibleBottom;
+    const isAtBottom = remaining <= 32;
+
+    if (isAtBottom) {
+      hasManuallyScrolledRef.current = false;
+
+      if (state.isBusy) {
+        flashListRef.current?.scrollToEnd({ animated: true });
+      }
+    }
+
+    lastContentOffsetRef.current = currentOffset;
+  };
   
   return (
     <SafeAreaView style={styles.safeArea} edges={['top']}>
@@ -156,6 +208,8 @@ export default function ChatbotScreen() {
           }}
           keyboardShouldPersistTaps="handled"
           contentContainerStyle={styles.listContent}
+          onScroll={handleScroll}
+          scrollEventThrottle={16}
         />
 
         {/* Chat Input */}
