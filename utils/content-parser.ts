@@ -11,6 +11,16 @@ function getSectionTitle(type: Section['type'], rawTag: string): string {
   return SECTION_TITLE_MAP[type]?.title ?? rawTag;
 }
 
+// Convert DOI references to clickable markdown links
+function convertDOIsToLinks(text: string): string {
+  const doiRegex = /\[doi:\s*([^\]]+)\]/gi;
+  
+  return text.replace(doiRegex, (match, doiIdentifier) => {
+    const trimmedDoi = doiIdentifier.trim();
+    return `[doi: ${trimmedDoi}](https://doi.org/${trimmedDoi})`;
+  });
+}
+
 // Ensures all opening tags have corresponding closing tags
 function ensureBalancedStreamingTags(text: string): string {
   let balanced = text;
@@ -94,7 +104,7 @@ export function parseTaggedContent(text: string): Section[] {
           id: `answer-${sections.length}`,
           type: 'answer',
           title: 'Answer',
-          content: untrackedContent,
+          content: convertDOIsToLinks(untrackedContent),
           isCollapsed: false, // Answer sections start open
         });
       }
@@ -110,7 +120,7 @@ export function parseTaggedContent(text: string): Section[] {
       id: `${sectionType}-${sections.length}`,
       type: sectionType,
       title,
-      content: tagMatch.content,
+      content: convertDOIsToLinks(tagMatch.content),
       isCollapsed: DEFAULT_COLLAPSE_STATE[sectionType],
     });
     
@@ -125,7 +135,7 @@ export function parseTaggedContent(text: string): Section[] {
         id: `answer-${sections.length}`,
         type: 'answer',
         title: 'Answer',
-        content: remainingContent,
+        content: convertDOIsToLinks(remainingContent),
         isCollapsed: false,
       });
     }
@@ -137,7 +147,7 @@ export function parseTaggedContent(text: string): Section[] {
       id: 'answer-0',
       type: 'answer',
       title: 'Answer',
-      content: text.trim(),
+      content: convertDOIsToLinks(text.trim()),
       isCollapsed: false,
     });
   }
