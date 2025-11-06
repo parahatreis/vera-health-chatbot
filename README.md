@@ -4,7 +4,7 @@ React Native chatbot with real-time SSE streaming for clinical questions.
 
 ## Demo
 
-<video src="demo.MP4" width="300" controls></video>
+[📹 View Demo Video](demo.MP4)
 
 ## Tech Stack
 
