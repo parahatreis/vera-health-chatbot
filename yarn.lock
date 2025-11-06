@@ -8310,6 +8310,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-sse@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "react-native-sse@npm:1.2.1"
+  checksum: 424910fa1bcc6643a7e9f628f2710bf185c862b63375ea6ec4b8eecfb5b714055480757ea1250ce6cdae66c2785f6a64432cdf9833e0ec0411b59f9791f6cce8
+  languageName: node
+  linkType: hard
+
 "react-native-web@npm:~0.21.0":
   version: 0.21.2
   resolution: "react-native-web@npm:0.21.2"
@@ -10028,6 +10035,7 @@ __metadata:
     react-native-reanimated: ~4.1.1
     react-native-safe-area-context: ~5.6.0
     react-native-screens: ~4.16.0
+    react-native-sse: ^1.2.1
     react-native-web: ~0.21.0
     react-native-worklets: 0.5.1
     typescript: ~5.9.2

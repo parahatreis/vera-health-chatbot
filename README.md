@@ -1,50 +1,62 @@
-# Welcome to your Expo app 👋
+# Vera Health Chatbot
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A React Native chatbot app built with Expo Router featuring real-time SSE streaming for clinical questions.
 
-## Get started
+## Features
 
-1. Install dependencies
 
-   ```bash
-   npm install
-   ```
+## Project Structure
 
-2. Start the app
+```
+app/
+  _layout.tsx           # Root layout with Stack navigation
+  index.tsx             # Main chatbot screen
 
-   ```bash
-   npx expo start
-   ```
+components/
+  header.tsx            # Question row + status chip
+  composer.tsx          # Input field with icons
+  floating-stop.tsx     # Cancel button (visible during streaming)
+  error-banner.tsx      # Inline error display with retry
 
-In the output, you'll find options to open the app in a
+hooks/
+  use-chatbot-state.ts  # Core state management & SSE connection
+  use-color-scheme.ts   # Color scheme detection
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+constants/
+  theme.ts              # Colors, spacing, typography tokens
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Getting Started
 
-## Learn more
+1. **Install dependencies**
 
-To learn more about developing your project with Expo, look at the following resources:
+   ```bash
+   yarn install
+   ```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+2. **Start the app**
 
-## Join the community
+   ```bash
+   yarn start
+   ```
 
-Join our community of developers creating universal apps.
+   Then press:
+   - `i` for iOS simulator
+   - `a` for Android emulator
+   - `w` for web
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+3. **Run on specific platform**
+
+   ```bash
+   yarn ios
+   yarn android
+   yarn web
+   ```
+
+## Usage
+
+1. Type a clinical question in the composer at the bottom
+2. Press Return/Send to submit
+3. Watch the live streaming response appear
+4. Tap **Stop** to cancel mid-stream (idempotent)
+5. Question header can be collapsed/expanded via chevron
