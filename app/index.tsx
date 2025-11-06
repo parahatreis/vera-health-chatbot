@@ -1,26 +1,23 @@
-import botImage from '@/assets/images/bot.png';
 import { ChatInput } from '@/components/chat-input';
-import { ErrorBanner } from '@/components/error-banner';
-import { QAItem } from '@/components/qa-item';
-import { Colors, Spacing, Typography } from '@/constants/theme';
+import { ChatListItem, ListItem } from '@/components/chat-list-item';
+import { Colors, Spacing } from '@/constants/theme';
 import { useChatbotState } from '@/hooks/use-chatbot-state';
+import { QAPair } from '@/types';
+import { FlashList, FlashListRef, ListRenderItem } from '@shopify/flash-list';
 import { useEffect, useRef, useState } from 'react';
 import {
   AccessibilityInfo,
-  Image,
   KeyboardAvoidingView,
   Platform,
-  ScrollView,
   StyleSheet,
-  Text,
-  View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function ChatbotScreen() {
   const [state, actions] = useChatbotState();
   const [inputValue, setInputValue] = useState('');
-  const scrollViewRef = useRef<ScrollView>(null);
+  const [visibleHistoryCount, setVisibleHistoryCount] = useState(50);
+  const flashListRef = useRef<FlashListRef<ListItem>>(null);
   const lastAnnouncementRef = useRef<number>(0);
 
   // Rate-limited accessibility announcements (max 1/second)
@@ -45,19 +42,24 @@ export default function ChatbotScreen() {
 
   // Announce new content
   useEffect(() => {
-    if (state.currentAnswer && state.status === 'streaming') {
+    if (state.currentSections.length > 0 && state.status === 'streaming') {
       announce('New content received');
     }
-  }, [state.currentAnswer, state.status]);
+  }, [state.currentSections, state.status]);
 
-  // Auto-scroll when answer updates
+  // Auto-scroll when sections update
   useEffect(() => {
-    if (state.currentAnswer || state.qaHistory.length > 0) {
+    if (state.currentSections.length > 0 || state.qaHistory.length > 0) {
       setTimeout(() => {
-        scrollViewRef.current?.scrollToEnd({ animated: true });
+        flashListRef.current?.scrollToEnd({ animated: true });
       }, 100);
     }
-  }, [state.currentAnswer, state.qaHistory.length]);
+  }, [state.currentSections, state.qaHistory.length]);
+
+  // Load more messages handler
+  const handleLoadMore = () => {
+    setVisibleHistoryCount(prev => Math.min(prev + 25, state.qaHistory.length));
+  };
 
   const handleSubmit = () => {
     const trimmed = inputValue.trim();
@@ -75,6 +77,64 @@ export default function ChatbotScreen() {
   };
 
   const hasContent = state.qaHistory.length > 0 || state.currentQuestion;
+  
+  // Prepare list data
+  const listData: ListItem[] = [];
+  
+  if (!hasContent) {
+    listData.push({ type: 'empty', data: null });
+  } else {
+    // Add error banner if present
+    if (state.error) {
+      listData.push({ type: 'error', data: state.error });
+    }
+    
+    // Add "Load more" button if we have hidden messages
+    const totalHistory = state.qaHistory.length;
+    if (totalHistory > visibleHistoryCount) {
+      listData.push({
+        type: 'load-more',
+        data: { showing: visibleHistoryCount, total: totalHistory },
+      });
+    }
+    
+    // Add visible historical Q&A pairs
+    const visibleHistory = state.qaHistory.slice(-visibleHistoryCount);
+    visibleHistory.forEach((qa, index) => {
+      listData.push({
+        type: 'qa',
+        data: qa,
+        isLast: index === visibleHistory.length - 1 && !state.currentQuestion,
+      });
+    });
+    
+    // Add current streaming Q&A if present
+    if (state.currentQuestion) {
+      const currentQA: QAPair = {
+        id: 'current',
+        question: state.currentQuestion,
+        sections: state.currentSections,
+        progressSteps: state.currentProgressSteps,
+      };
+      listData.push({
+        type: 'qa',
+        data: currentQA,
+        isLast: true,
+      });
+    }
+  }
+  
+  const renderItem: ListRenderItem<ListItem> = ({ item }) => (
+    <ChatListItem
+      item={item}
+      isBusy={state.isBusy}
+      onRetry={handleRetry}
+      onLoadMore={handleLoadMore}
+    />
+  );
+  
+  const getItemType = (item: ListItem) => item.type;
+  
   return (
     <SafeAreaView style={styles.safeArea} edges={['top']}>
       <KeyboardAvoidingView
@@ -82,47 +142,21 @@ export default function ChatbotScreen() {
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         keyboardVerticalOffset={0}
       >
-        {/* Q&A List */}
-        <ScrollView
-          ref={scrollViewRef}
-          style={styles.scrollView}
-          contentContainerStyle={styles.scrollContent}
+        {/* Q&A List with FlashList */}
+        <FlashList
+          ref={flashListRef}
+          data={listData}
+          renderItem={renderItem}
+          getItemType={getItemType}
+          keyExtractor={(item, index) => {
+            if (item.type === 'qa') return item.data.id;
+            if (item.type === 'error') return 'error';
+            if (item.type === 'load-more') return 'load-more';
+            return 'empty';
+          }}
           keyboardShouldPersistTaps="handled"
-          accessibilityRole="scrollbar"
-          accessibilityLabel="Question and answer history"
-        >
-          {/* Error Banner */}
-          {state.error && <ErrorBanner message={state.error} onRetry={handleRetry} />}
-
-          {/* Historical Q&A pairs */}
-          {state.qaHistory.map((qa, index) => (
-            <QAItem
-              key={qa.id}
-              question={qa.question}
-              answer={qa.answer}
-              isStreaming={false}
-              isLast={index === state.qaHistory.length - 1 && !state.currentQuestion}
-            />
-          ))}
-
-          {/* Current streaming Q&A */}
-          {state.currentQuestion && (
-            <QAItem
-              question={state.currentQuestion}
-              answer={state.currentAnswer}
-              isStreaming={state.isBusy}
-              isLast={true}
-            />
-          )}
-
-          {/* Empty state */}
-          {!hasContent && (
-            <View style={styles.emptyState}>
-              <Image source={botImage} style={styles.botImage} />
-              <Text style={styles.emptyText}>Ask a clinical question to get started</Text>
-            </View>
-          )}
-        </ScrollView>
+          contentContainerStyle={styles.listContent}
+        />
 
         {/* Chat Input */}
         <ChatInput
@@ -147,26 +181,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.background,
   },
-  scrollView: {
-    flex: 1,
-  },
-  scrollContent: {
-    flexGrow: 1,
-  },
-  emptyState: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: Spacing.screenHorizontal,
-    paddingVertical: Spacing.xl,
-  },
-  emptyText: {
-    fontSize: Typography.body.fontSize,
-    color: Colors.textMuted,
-    textAlign: 'center',
-  },
-  botImage: {
-    width: 100,
-    height: 100,
+  listContent: {
+    paddingBottom: Spacing.md,
   },
 });

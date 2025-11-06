@@ -1,0 +1,1664 @@
+: ping
+
+data: {"type":"NodeChunk","content":{"nodeName":"SEARCH_STEPS","content":[{"text":"Analyzing your clinical question...","isActive":true},{"text":"Developing search strategy..."},{"text":"Searching peer-reviewed literature..."},{"text":"Synthesizing research findings..."},{"text":"Formulating evidence-based response..."}]}}
+
+data: {"type":"NodeChunk","content":{"nodeName":"SEARCH_STEPS","content":[{"text":"Analyzing your clinical question...","isCompleted":true,"info":"Medication-related question—retrieving the most relevant drug data."},{"text":"Developing search strategy...","isActive":true},{"text":"Searching peer-reviewed literature..."},{"text":"Synthesizing research findings..."},{"text":"Formulating evidence-based response..."}]}}
+
+data: {"type":"NodeChunk","content":{"nodeName":"FIGURES","content":[{"title":"Example Figure 1","type":"Table","url":"https://example.com/figure1.png","source":"Example Source Article","journal":"Example Journal","year":"2024","author":"John Doe","notes":"Example notes about the figure","key_data":"Key data points from the figure","purpose":"Purpose of this figure in the context","doi":"10.1001/example.2024.1234","doi_url":"https://doi.org/10.1001/example.2024.1234"}]}}
+
+data: {"type":"NodeChunk","content":{"nodeName":"SEARCH_STEPS","content":[{"text":"Analyzing your clinical question...","isCompleted":true,"info":"Medication-related question—retrieving the most relevant drug data."},{"text":"Developing search strategy...","isCompleted":true},{"text":"Searching peer-reviewed literature...","isActive":true},{"text":"Synthesizing research findings..."},{"text":"Formulating evidence-based response..."}]}}
+
+data: {"type":"NodeChunk","content":{"nodeName":"SEARCH_PROGRESS_INIT","content":{"message":"Starting search across medical literature...","categories":["general","evidence","guidelines","best_journals"]}}}
+
+data: {"type":"NodeChunk","content":{"nodeName":"SEARCH_PROGRESS","content":{"category":"best_journals","total":10,"results":[{"title":"Research findings related to: Does semaglutide lower major cardiovascular events in T2D patients without established ASCVD?","journal":"Example Medical Journal","year":"2024","is_guideline":"0","publication_types":[],"content":"This is example content related to your prompt: \"Does semaglutide lower major cardiovascular events in T2D patients without established ASCVD?\". In a real implementation, this would contain actual research data."}]}}}
+
+data: {"type":"NodeChunk","content":{"nodeName":"SEARCH_STEPS","content":[{"text":"Analyzing your clinical question...","isCompleted":true,"info":"Medication-related question—retrieving the most relevant drug data."},{"text":"Developing search strategy...","isCompleted":true},{"text":"Searching peer-reviewed literature...","isCompleted":true},{"text":"Synthesizing research findings...","isActive":true},{"text":"Formulating evidence-based response..."}]}}
+
+data: {"type":"STREAM","content":"<think>Th"}
+
+data: {"type":"STREAM","content":"e questi"}
+
+data: {"type":"STREAM","content":"on is ask"}
+
+data: {"type":"STREAM","content":"ing fo"}
+
+data: {"type":"STREAM","content":"r a diff"}
+
+data: {"type":"STREAM","content":"erent"}
+
+data: {"type":"STREAM","content":"ial diagn"}
+
+data: {"type":"STREAM","content":"osis (D"}
+
+data: {"type":"STREAM","content":"Dx) fo"}
+
+data: {"type":"STREAM","content":"r a 72"}
+
+data: {"type":"STREAM","content":"-year-"}
+
+data: {"type":"STREAM","content":"old m"}
+
+data: {"type":"STREAM","content":"ale with "}
+
+data: {"type":"STREAM","content":"acute a"}
+
+data: {"type":"STREAM","content":"ltered men"}
+
+data: {"type":"STREAM","content":"tal sta"}
+
+data: {"type":"STREAM","content":"tus (AMS)"}
+
+data: {"type":"STREAM","content":", low-gra"}
+
+data: {"type":"STREAM","content":"de fever"}
+
+data: {"type":"STREAM","content":", and "}
+
+data: {"type":"STREAM","content":"norma"}
+
+data: {"type":"STREAM","content":"l CBC/CM"}
+
+data: {"type":"STREAM","content":"P. His pas"}
+
+data: {"type":"STREAM","content":"t medical"}
+
+data: {"type":"STREAM","content":" history i"}
+
+data: {"type":"STREAM","content":"ncludes di"}
+
+data: {"type":"STREAM","content":"abetes m"}
+
+data: {"type":"STREAM","content":"ellitus"}
+
+data: {"type":"STREAM","content":" type "}
+
+data: {"type":"STREAM","content":"2 (DM2), "}
+
+data: {"type":"STREAM","content":"hyperten"}
+
+data: {"type":"STREAM","content":"sion (HT"}
+
+data: {"type":"STREAM","content":"N), and c"}
+
+data: {"type":"STREAM","content":"hronic kid"}
+
+data: {"type":"STREAM","content":"ney d"}
+
+data: {"type":"STREAM","content":"isease "}
+
+data: {"type":"STREAM","content":"stage 3 (C"}
+
+data: {"type":"STREAM","content":"KD3).\n"}
+
+data: {"type":"STREAM","content":"\nLet me"}
+
+data: {"type":"STREAM","content":" analyze t"}
+
+data: {"type":"STREAM","content":"he re"}
+
+data: {"type":"STREAM","content":"ferenc"}
+
+data: {"type":"STREAM","content":"es and str"}
+
+data: {"type":"STREAM","content":"ucture"}
+
+data: {"type":"STREAM","content":" my respo"}
+
+data: {"type":"STREAM","content":"nse accord"}
+
+data: {"type":"STREAM","content":"ing to "}
+
+data: {"type":"STREAM","content":"the gui"}
+
+data: {"type":"STREAM","content":"delines"}
+
+data: {"type":"STREAM","content":":\n\nKey fi"}
+
+data: {"type":"STREAM","content":"nding"}
+
+data: {"type":"STREAM","content":"s:\n- "}
+
+data: {"type":"STREAM","content":"72M (elde"}
+
+data: {"type":"STREAM","content":"rly)\n- Ac"}
+
+data: {"type":"STREAM","content":"ute AMS"}
+
+data: {"type":"STREAM","content":"\n- Lo"}
+
+data: {"type":"STREAM","content":"w-grade "}
+
+data: {"type":"STREAM","content":"fever\n- "}
+
+data: {"type":"STREAM","content":"Normal "}
+
+data: {"type":"STREAM","content":"CBC/CMP (r"}
+
+data: {"type":"STREAM","content":"ules "}
+
+data: {"type":"STREAM","content":"out obv"}
+
+data: {"type":"STREAM","content":"ious elect"}
+
+data: {"type":"STREAM","content":"rolyte abn"}
+
+data: {"type":"STREAM","content":"ormali"}
+
+data: {"type":"STREAM","content":"ties, a"}
+
+data: {"type":"STREAM","content":"nemia, inf"}
+
+data: {"type":"STREAM","content":"ectio"}
+
+data: {"type":"STREAM","content":"n marke"}
+
+data: {"type":"STREAM","content":"rs on CBC"}
+
+data: {"type":"STREAM","content":")\n- PMH"}
+
+data: {"type":"STREAM","content":": DM2, H"}
+
+data: {"type":"STREAM","content":"TN, C"}
+
+data: {"type":"STREAM","content":"KD3\n\nFrom "}
+
+data: {"type":"STREAM","content":"the refer"}
+
+data: {"type":"STREAM","content":"ences:\n"}
+
+data: {"type":"STREAM","content":"\n1. Deliri"}
+
+data: {"type":"STREAM","content":"um is "}
+
+data: {"type":"STREAM","content":"very co"}
+
+data: {"type":"STREAM","content":"mmon in"}
+
+data: {"type":"STREAM","content":" elderly "}
+
+data: {"type":"STREAM","content":"patients ["}
+
+data: {"type":"STREAM","content":"doi: "}
+
+data: {"type":"STREAM","content":"10.1001"}
+
+data: {"type":"STREAM","content":"/jama.20"}
+
+data: {"type":"STREAM","content":"17.12"}
+
+data: {"type":"STREAM","content":"067]\n2"}
+
+data: {"type":"STREAM","content":". Risk f"}
+
+data: {"type":"STREAM","content":"actors f"}
+
+data: {"type":"STREAM","content":"or del"}
+
+data: {"type":"STREAM","content":"irium "}
+
+data: {"type":"STREAM","content":"include"}
+
+data: {"type":"STREAM","content":": dem"}
+
+data: {"type":"STREAM","content":"entia"}
+
+data: {"type":"STREAM","content":", older a"}
+
+data: {"type":"STREAM","content":"ge, com"}
+
+data: {"type":"STREAM","content":"orbid "}
+
+data: {"type":"STREAM","content":"illness, "}
+
+data: {"type":"STREAM","content":"infecti"}
+
+data: {"type":"STREAM","content":"on, m"}
+
+data: {"type":"STREAM","content":"edications"}
+
+data: {"type":"STREAM","content":", imm"}
+
+data: {"type":"STREAM","content":"obility, s"}
+
+data: {"type":"STREAM","content":"ensory"}
+
+data: {"type":"STREAM","content":" impair"}
+
+data: {"type":"STREAM","content":"ment, uri"}
+
+data: {"type":"STREAM","content":"nary cat"}
+
+data: {"type":"STREAM","content":"heterizati"}
+
+data: {"type":"STREAM","content":"on, u"}
+
+data: {"type":"STREAM","content":"rea/ele"}
+
+data: {"type":"STREAM","content":"ctrolyte "}
+
+data: {"type":"STREAM","content":"imbalanc"}
+
+data: {"type":"STREAM","content":"e, malnu"}
+
+data: {"type":"STREAM","content":"triti"}
+
+data: {"type":"STREAM","content":"on [doi"}
+
+data: {"type":"STREAM","content":": 10.1093"}
+
+data: {"type":"STREAM","content":"/ageing/af"}
+
+data: {"type":"STREAM","content":"u022]\n3"}
+
+data: {"type":"STREAM","content":". In el"}
+
+data: {"type":"STREAM","content":"derly wi"}
+
+data: {"type":"STREAM","content":"th AMS, "}
+
+data: {"type":"STREAM","content":"common"}
+
+data: {"type":"STREAM","content":" caus"}
+
+data: {"type":"STREAM","content":"es are inf"}
+
+data: {"type":"STREAM","content":"ection a"}
+
+data: {"type":"STREAM","content":"nd neu"}
+
+data: {"type":"STREAM","content":"rological "}
+
+data: {"type":"STREAM","content":"disease"}
+
+data: {"type":"STREAM","content":"s [doi: "}
+
+data: {"type":"STREAM","content":"10.1016/j."}
+
+data: {"type":"STREAM","content":"ajem.2"}
+
+data: {"type":"STREAM","content":"016.10."}
+
+data: {"type":"STREAM","content":"004]\n4"}
+
+data: {"type":"STREAM","content":". Toxi"}
+
+data: {"type":"STREAM","content":"c/met"}
+
+data: {"type":"STREAM","content":"abolic/inf"}
+
+data: {"type":"STREAM","content":"ectious"}
+
+data: {"type":"STREAM","content":" causes"}
+
+data: {"type":"STREAM","content":" acco"}
+
+data: {"type":"STREAM","content":"unt for 7"}
+
+data: {"type":"STREAM","content":"5% of AM"}
+
+data: {"type":"STREAM","content":"S in el"}
+
+data: {"type":"STREAM","content":"derly "}
+
+data: {"type":"STREAM","content":"[doi: 10.1"}
+
+data: {"type":"STREAM","content":"212/wnl."}
+
+data: {"type":"STREAM","content":"94.15_s"}
+
+data: {"type":"STREAM","content":"upplemen"}
+
+data: {"type":"STREAM","content":"t.982"}
+
+data: {"type":"STREAM","content":"]\n5. Non-c"}
+
+data: {"type":"STREAM","content":"onvulsiv"}
+
+data: {"type":"STREAM","content":"e sta"}
+
+data: {"type":"STREAM","content":"tus epilep"}
+
+data: {"type":"STREAM","content":"ticus"}
+
+data: {"type":"STREAM","content":" should "}
+
+data: {"type":"STREAM","content":"be con"}
+
+data: {"type":"STREAM","content":"sidered "}
+
+data: {"type":"STREAM","content":"in elderl"}
+
+data: {"type":"STREAM","content":"y with a"}
+
+data: {"type":"STREAM","content":"cute "}
+
+data: {"type":"STREAM","content":"confusiona"}
+
+data: {"type":"STREAM","content":"l sta"}
+
+data: {"type":"STREAM","content":"te [doi: "}
+
+data: {"type":"STREAM","content":"10.10"}
+
+data: {"type":"STREAM","content":"16/j.jn"}
+
+data: {"type":"STREAM","content":"s.2020"}
+
+data: {"type":"STREAM","content":".11667"}
+
+data: {"type":"STREAM","content":"4]\n6."}
+
+data: {"type":"STREAM","content":" In febr"}
+
+data: {"type":"STREAM","content":"ile elder"}
+
+data: {"type":"STREAM","content":"ly with AM"}
+
+data: {"type":"STREAM","content":"S, need to"}
+
+data: {"type":"STREAM","content":" consider"}
+
+data: {"type":"STREAM","content":" CNS in"}
+
+data: {"type":"STREAM","content":"fection "}
+
+data: {"type":"STREAM","content":"[doi:"}
+
+data: {"type":"STREAM","content":" 10.11"}
+
+data: {"type":"STREAM","content":"55/2016/"}
+
+data: {"type":"STREAM","content":"5273651]"}
+
+data: {"type":"STREAM","content":"\n7. Patien"}
+
+data: {"type":"STREAM","content":"ts wit"}
+
+data: {"type":"STREAM","content":"h DM2 a"}
+
+data: {"type":"STREAM","content":"re at hi"}
+
+data: {"type":"STREAM","content":"gher ris"}
+
+data: {"type":"STREAM","content":"k for "}
+
+data: {"type":"STREAM","content":"MCI an"}
+
+data: {"type":"STREAM","content":"d cognit"}
+
+data: {"type":"STREAM","content":"ive impa"}
+
+data: {"type":"STREAM","content":"irment ["}
+
+data: {"type":"STREAM","content":"doi: 10"}
+
+data: {"type":"STREAM","content":".1016"}
+
+data: {"type":"STREAM","content":"/j.jpsyc"}
+
+data: {"type":"STREAM","content":"hires"}
+
+data: {"type":"STREAM","content":".2025."}
+
+data: {"type":"STREAM","content":"04.03"}
+
+data: {"type":"STREAM","content":"9]\n\n\n8. N"}
+
+data: {"type":"STREAM","content":"ormal la"}
+
+data: {"type":"STREAM","content":"bs don"}
+
+data: {"type":"STREAM","content":"'t exclude"}
+
+data: {"type":"STREAM","content":" seri"}
+
+data: {"type":"STREAM","content":"ous cau"}
+
+data: {"type":"STREAM","content":"ses - n"}
+
+data: {"type":"STREAM","content":"eed to "}
+
+data: {"type":"STREAM","content":"consider s"}
+
+data: {"type":"STREAM","content":"troke, s"}
+
+data: {"type":"STREAM","content":"eizure,"}
+
+data: {"type":"STREAM","content":" CNS infec"}
+
+data: {"type":"STREAM","content":"tion [m"}
+
+data: {"type":"STREAM","content":"ultiple "}
+
+data: {"type":"STREAM","content":"sources]\n"}
+
+data: {"type":"STREAM","content":"9. Asympto"}
+
+data: {"type":"STREAM","content":"matic bact"}
+
+data: {"type":"STREAM","content":"eriuria"}
+
+data: {"type":"STREAM","content":" commo"}
+
+data: {"type":"STREAM","content":"n in e"}
+
+data: {"type":"STREAM","content":"lderl"}
+
+data: {"type":"STREAM","content":"y and may"}
+
+data: {"type":"STREAM","content":" not be t"}
+
+data: {"type":"STREAM","content":"he cau"}
+
+data: {"type":"STREAM","content":"se [d"}
+
+data: {"type":"STREAM","content":"oi: 10.10"}
+
+data: {"type":"STREAM","content":"16/j.jagp."}
+
+data: {"type":"STREAM","content":"2020.0"}
+
+data: {"type":"STREAM","content":"1.139]"}
+
+data: {"type":"STREAM","content":"\n10. DKA"}
+
+data: {"type":"STREAM","content":" can pre"}
+
+data: {"type":"STREAM","content":"sent with"}
+
+data: {"type":"STREAM","content":" AMS in e"}
+
+data: {"type":"STREAM","content":"lderly"}
+
+data: {"type":"STREAM","content":" [doi:"}
+
+data: {"type":"STREAM","content":" 10.24"}
+
+data: {"type":"STREAM","content":"78/jtim"}
+
+data: {"type":"STREAM","content":"-2019-0003"}
+
+data: {"type":"STREAM","content":"]\n\nI'"}
+
+data: {"type":"STREAM","content":"ll focus o"}
+
+data: {"type":"STREAM","content":"n potentia"}
+
+data: {"type":"STREAM","content":"l differ"}
+
+data: {"type":"STREAM","content":"ential "}
+
+data: {"type":"STREAM","content":"diagnose"}
+
+data: {"type":"STREAM","content":"s that c"}
+
+data: {"type":"STREAM","content":"ould expla"}
+
+data: {"type":"STREAM","content":"in the pa"}
+
+data: {"type":"STREAM","content":"tient's"}
+
+data: {"type":"STREAM","content":" presentat"}
+
+data: {"type":"STREAM","content":"ion. Des"}
+
+data: {"type":"STREAM","content":"pite "}
+
+data: {"type":"STREAM","content":"normal"}
+
+data: {"type":"STREAM","content":" initia"}
+
+data: {"type":"STREAM","content":"l labs"}
+
+data: {"type":"STREAM","content":", several "}
+
+data: {"type":"STREAM","content":"critic"}
+
+data: {"type":"STREAM","content":"al condit"}
+
+data: {"type":"STREAM","content":"ions warra"}
+
+data: {"type":"STREAM","content":"nt in"}
+
+data: {"type":"STREAM","content":"vestigatio"}
+
+data: {"type":"STREAM","content":"n. Neuro"}
+
+data: {"type":"STREAM","content":"logical e"}
+
+data: {"type":"STREAM","content":"mergenc"}
+
+data: {"type":"STREAM","content":"ies like"}
+
+data: {"type":"STREAM","content":" strok"}
+
+data: {"type":"STREAM","content":"e or non-"}
+
+data: {"type":"STREAM","content":"convulsi"}
+
+data: {"type":"STREAM","content":"ve statu"}
+
+data: {"type":"STREAM","content":"s epi"}
+
+data: {"type":"STREAM","content":"lepticus "}
+
+data: {"type":"STREAM","content":"are high-"}
+
+data: {"type":"STREAM","content":"priority c"}
+
+data: {"type":"STREAM","content":"onsiderat"}
+
+data: {"type":"STREAM","content":"ions. "}
+
+data: {"type":"STREAM","content":"Metab"}
+
+data: {"type":"STREAM","content":"olic der"}
+
+data: {"type":"STREAM","content":"angements "}
+
+data: {"type":"STREAM","content":"specific"}
+
+data: {"type":"STREAM","content":" to his"}
+
+data: {"type":"STREAM","content":" diabe"}
+
+data: {"type":"STREAM","content":"tes, such "}
+
+data: {"type":"STREAM","content":"as diabet"}
+
+data: {"type":"STREAM","content":"ic ketoac"}
+
+data: {"type":"STREAM","content":"idosis, "}
+
+data: {"type":"STREAM","content":"could"}
+
+data: {"type":"STREAM","content":" trigg"}
+
+data: {"type":"STREAM","content":"er acute "}
+
+data: {"type":"STREAM","content":"mental s"}
+
+data: {"type":"STREAM","content":"tatus "}
+
+data: {"type":"STREAM","content":"change"}
+
+data: {"type":"STREAM","content":"s. Unde"}
+
+data: {"type":"STREAM","content":"rlying inf"}
+
+data: {"type":"STREAM","content":"ectious"}
+
+data: {"type":"STREAM","content":" processe"}
+
+data: {"type":"STREAM","content":"s, pa"}
+
+data: {"type":"STREAM","content":"rticularl"}
+
+data: {"type":"STREAM","content":"y sile"}
+
+data: {"type":"STREAM","content":"nt CNS in"}
+
+data: {"type":"STREAM","content":"fections, "}
+
+data: {"type":"STREAM","content":"remain a"}
+
+data: {"type":"STREAM","content":" signif"}
+
+data: {"type":"STREAM","content":"icant co"}
+
+data: {"type":"STREAM","content":"ncern "}
+
+data: {"type":"STREAM","content":"given hi"}
+
+data: {"type":"STREAM","content":"s low-gra"}
+
+data: {"type":"STREAM","content":"de fever"}
+
+data: {"type":"STREAM","content":" and adv"}
+
+data: {"type":"STREAM","content":"anced "}
+
+data: {"type":"STREAM","content":"age.\n\nK"}
+
+data: {"type":"STREAM","content":"ey diagno"}
+
+data: {"type":"STREAM","content":"stic "}
+
+data: {"type":"STREAM","content":"prioritie"}
+
+data: {"type":"STREAM","content":"s inc"}
+
+data: {"type":"STREAM","content":"lude ruli"}
+
+data: {"type":"STREAM","content":"ng out"}
+
+data: {"type":"STREAM","content":" life-th"}
+
+data: {"type":"STREAM","content":"reateni"}
+
+data: {"type":"STREAM","content":"ng conditi"}
+
+data: {"type":"STREAM","content":"ons throu"}
+
+data: {"type":"STREAM","content":"gh ta"}
+
+data: {"type":"STREAM","content":"rgeted neu"}
+
+data: {"type":"STREAM","content":"rological"}
+
+data: {"type":"STREAM","content":" and meta"}
+
+data: {"type":"STREAM","content":"bolic asse"}
+
+data: {"type":"STREAM","content":"ssment"}
+
+data: {"type":"STREAM","content":"s. Ca"}
+
+data: {"type":"STREAM","content":"reful "}
+
+data: {"type":"STREAM","content":"evaluati"}
+
+data: {"type":"STREAM","content":"on of gl"}
+
+data: {"type":"STREAM","content":"ucose lev"}
+
+data: {"type":"STREAM","content":"els, neu"}
+
+data: {"type":"STREAM","content":"rolog"}
+
+data: {"type":"STREAM","content":"ical s"}
+
+data: {"type":"STREAM","content":"tatus, "}
+
+data: {"type":"STREAM","content":"and potent"}
+
+data: {"type":"STREAM","content":"ial inf"}
+
+data: {"type":"STREAM","content":"ectiou"}
+
+data: {"type":"STREAM","content":"s sou"}
+
+data: {"type":"STREAM","content":"rces is cr"}
+
+data: {"type":"STREAM","content":"ucial, ev"}
+
+data: {"type":"STREAM","content":"en whe"}
+
+data: {"type":"STREAM","content":"n ini"}
+
+data: {"type":"STREAM","content":"tial s"}
+
+data: {"type":"STREAM","content":"creening "}
+
+data: {"type":"STREAM","content":"tests "}
+
+data: {"type":"STREAM","content":"appear u"}
+
+data: {"type":"STREAM","content":"nremarkab"}
+
+data: {"type":"STREAM","content":"le.\n\n"}
+
+data: {"type":"STREAM","content":"Critical "}
+
+data: {"type":"STREAM","content":"diagnosti"}
+
+data: {"type":"STREAM","content":"c steps i"}
+
+data: {"type":"STREAM","content":"nvolve com"}
+
+data: {"type":"STREAM","content":"prehe"}
+
+data: {"type":"STREAM","content":"nsive"}
+
+data: {"type":"STREAM","content":" neurolog"}
+
+data: {"type":"STREAM","content":"ical exami"}
+
+data: {"type":"STREAM","content":"nation,"}
+
+data: {"type":"STREAM","content":" meta"}
+
+data: {"type":"STREAM","content":"bolic pane"}
+
+data: {"type":"STREAM","content":"l, imagi"}
+
+data: {"type":"STREAM","content":"ng stu"}
+
+data: {"type":"STREAM","content":"dies, "}
+
+data: {"type":"STREAM","content":"and potent"}
+
+data: {"type":"STREAM","content":"ial spe"}
+
+data: {"type":"STREAM","content":"cialized t"}
+
+data: {"type":"STREAM","content":"esting"}
+
+data: {"type":"STREAM","content":" to d"}
+
+data: {"type":"STREAM","content":"efini"}
+
+data: {"type":"STREAM","content":"tively "}
+
+data: {"type":"STREAM","content":"exclude"}
+
+data: {"type":"STREAM","content":" serious "}
+
+data: {"type":"STREAM","content":"underlyi"}
+
+data: {"type":"STREAM","content":"ng patholo"}
+
+data: {"type":"STREAM","content":"gies in"}
+
+data: {"type":"STREAM","content":" this "}
+
+data: {"type":"STREAM","content":"complex el"}
+
+data: {"type":"STREAM","content":"derly dia"}
+
+data: {"type":"STREAM","content":"betic "}
+
+data: {"type":"STREAM","content":"patient.</"}
+
+data: {"type":"STREAM","content":"think>*"}
+
+data: {"type":"STREAM","content":"*Most Li"}
+
+data: {"type":"STREAM","content":"kely Di"}
+
+data: {"type":"STREAM","content":"agnose"}
+
+data: {"type":"STREAM","content":"s:**\n\n1. "}
+
+data: {"type":"STREAM","content":"**Infect"}
+
+data: {"type":"STREAM","content":"ion-rela"}
+
+data: {"type":"STREAM","content":"ted deliri"}
+
+data: {"type":"STREAM","content":"um**: "}
+
+data: {"type":"STREAM","content":"Despite"}
+
+data: {"type":"STREAM","content":" norm"}
+
+data: {"type":"STREAM","content":"al CBC, in"}
+
+data: {"type":"STREAM","content":"fecti"}
+
+data: {"type":"STREAM","content":"on rem"}
+
+data: {"type":"STREAM","content":"ains the "}
+
+data: {"type":"STREAM","content":"leading "}
+
+data: {"type":"STREAM","content":"cause of"}
+
+data: {"type":"STREAM","content":" acute AM"}
+
+data: {"type":"STREAM","content":"S in elder"}
+
+data: {"type":"STREAM","content":"ly patient"}
+
+data: {"type":"STREAM","content":"s with fev"}
+
+data: {"type":"STREAM","content":"er. Common"}
+
+data: {"type":"STREAM","content":" culpri"}
+
+data: {"type":"STREAM","content":"ts includ"}
+
+data: {"type":"STREAM","content":"e urinary "}
+
+data: {"type":"STREAM","content":"tract infe"}
+
+data: {"type":"STREAM","content":"ction"}
+
+data: {"type":"STREAM","content":", pneumon"}
+
+data: {"type":"STREAM","content":"ia, or "}
+
+data: {"type":"STREAM","content":"occult "}
+
+data: {"type":"STREAM","content":"infection."}
+
+data: {"type":"STREAM","content":" Normal "}
+
+data: {"type":"STREAM","content":"white bl"}
+
+data: {"type":"STREAM","content":"ood cell c"}
+
+data: {"type":"STREAM","content":"ount d"}
+
+data: {"type":"STREAM","content":"oes n"}
+
+data: {"type":"STREAM","content":"ot exc"}
+
+data: {"type":"STREAM","content":"lude in"}
+
+data: {"type":"STREAM","content":"fection "}
+
+data: {"type":"STREAM","content":"in eld"}
+
+data: {"type":"STREAM","content":"erly pa"}
+
+data: {"type":"STREAM","content":"tients,"}
+
+data: {"type":"STREAM","content":" parti"}
+
+data: {"type":"STREAM","content":"cularly th"}
+
+data: {"type":"STREAM","content":"ose with "}
+
+data: {"type":"STREAM","content":"diabetes.["}
+
+data: {"type":"STREAM","content":"doi: 1"}
+
+data: {"type":"STREAM","content":"0.1016/j"}
+
+data: {"type":"STREAM","content":".ajem"}
+
+data: {"type":"STREAM","content":".2016.1"}
+
+data: {"type":"STREAM","content":"0.004] I"}
+
+data: {"type":"STREAM","content":"n a mu"}
+
+data: {"type":"STREAM","content":"lticent"}
+
+data: {"type":"STREAM","content":"er study"}
+
+data: {"type":"STREAM","content":", infectio"}
+
+data: {"type":"STREAM","content":"n and neu"}
+
+data: {"type":"STREAM","content":"rological "}
+
+data: {"type":"STREAM","content":"diseas"}
+
+data: {"type":"STREAM","content":"es were "}
+
+data: {"type":"STREAM","content":"the most "}
+
+data: {"type":"STREAM","content":"common et"}
+
+data: {"type":"STREAM","content":"iologies"}
+
+data: {"type":"STREAM","content":" for AMS "}
+
+data: {"type":"STREAM","content":"in el"}
+
+data: {"type":"STREAM","content":"derly"}
+
+data: {"type":"STREAM","content":" ED patie"}
+
+data: {"type":"STREAM","content":"nts.[doi"}
+
+data: {"type":"STREAM","content":": 10."}
+
+data: {"type":"STREAM","content":"1016/j.aj"}
+
+data: {"type":"STREAM","content":"em.201"}
+
+data: {"type":"STREAM","content":"6.10.004]"}
+
+data: {"type":"STREAM","content":" His diabe"}
+
+data: {"type":"STREAM","content":"tes and"}
+
+data: {"type":"STREAM","content":" CKD incre"}
+
+data: {"type":"STREAM","content":"ase inf"}
+
+data: {"type":"STREAM","content":"ectio"}
+
+data: {"type":"STREAM","content":"n suscept"}
+
+data: {"type":"STREAM","content":"ibility"}
+
+data: {"type":"STREAM","content":".\n\n2. *"}
+
+data: {"type":"STREAM","content":"*Multi"}
+
+data: {"type":"STREAM","content":"factoria"}
+
+data: {"type":"STREAM","content":"l delir"}
+
+data: {"type":"STREAM","content":"ium**: I"}
+
+data: {"type":"STREAM","content":"n elderly "}
+
+data: {"type":"STREAM","content":"hospitaliz"}
+
+data: {"type":"STREAM","content":"ed patien"}
+
+data: {"type":"STREAM","content":"ts, t"}
+
+data: {"type":"STREAM","content":"oxic/m"}
+
+data: {"type":"STREAM","content":"etabol"}
+
+data: {"type":"STREAM","content":"ic/inf"}
+
+data: {"type":"STREAM","content":"ectious"}
+
+data: {"type":"STREAM","content":" cause"}
+
+data: {"type":"STREAM","content":"s accou"}
+
+data: {"type":"STREAM","content":"nt for "}
+
+data: {"type":"STREAM","content":"approxim"}
+
+data: {"type":"STREAM","content":"ately"}
+
+data: {"type":"STREAM","content":" 75% of A"}
+
+data: {"type":"STREAM","content":"MS cases."}
+
+data: {"type":"STREAM","content":"[doi: 10.1"}
+
+data: {"type":"STREAM","content":"212/wnl.94"}
+
+data: {"type":"STREAM","content":".15_supp"}
+
+data: {"type":"STREAM","content":"lemen"}
+
+data: {"type":"STREAM","content":"t.982] Ris"}
+
+data: {"type":"STREAM","content":"k facto"}
+
+data: {"type":"STREAM","content":"rs inclu"}
+
+data: {"type":"STREAM","content":"de old"}
+
+data: {"type":"STREAM","content":"er ag"}
+
+data: {"type":"STREAM","content":"e, comorbi"}
+
+data: {"type":"STREAM","content":"d illne"}
+
+data: {"type":"STREAM","content":"sses (DM2,"}
+
+data: {"type":"STREAM","content":" HTN, CKD3"}
+
+data: {"type":"STREAM","content":"), and po"}
+
+data: {"type":"STREAM","content":"tential me"}
+
+data: {"type":"STREAM","content":"dication "}
+
+data: {"type":"STREAM","content":"effec"}
+
+data: {"type":"STREAM","content":"ts.[d"}
+
+data: {"type":"STREAM","content":"oi: 1"}
+
+data: {"type":"STREAM","content":"0.1093"}
+
+data: {"type":"STREAM","content":"/agei"}
+
+data: {"type":"STREAM","content":"ng/afu022]"}
+
+data: {"type":"STREAM","content":" The patie"}
+
+data: {"type":"STREAM","content":"nt's multi"}
+
+data: {"type":"STREAM","content":"ple comorb"}
+
+data: {"type":"STREAM","content":"idities"}
+
+data: {"type":"STREAM","content":" make hi"}
+
+data: {"type":"STREAM","content":"m vuln"}
+
+data: {"type":"STREAM","content":"erabl"}
+
+data: {"type":"STREAM","content":"e to pre"}
+
+data: {"type":"STREAM","content":"cipitating"}
+
+data: {"type":"STREAM","content":" factors"}
+
+data: {"type":"STREAM","content":" even"}
+
+data: {"type":"STREAM","content":" with"}
+
+data: {"type":"STREAM","content":" normal"}
+
+data: {"type":"STREAM","content":" initial l"}
+
+data: {"type":"STREAM","content":"abs.\n\n3."}
+
+data: {"type":"STREAM","content":" **Hyperg"}
+
+data: {"type":"STREAM","content":"lycem"}
+
+data: {"type":"STREAM","content":"ic state "}
+
+data: {"type":"STREAM","content":"or di"}
+
+data: {"type":"STREAM","content":"abeti"}
+
+data: {"type":"STREAM","content":"c ketoac"}
+
+data: {"type":"STREAM","content":"idosis*"}
+
+data: {"type":"STREAM","content":"*: In "}
+
+data: {"type":"STREAM","content":"elderly"}
+
+data: {"type":"STREAM","content":" diabe"}
+
+data: {"type":"STREAM","content":"tics, DK"}
+
+data: {"type":"STREAM","content":"A can p"}
+
+data: {"type":"STREAM","content":"resent aty"}
+
+data: {"type":"STREAM","content":"picall"}
+
+data: {"type":"STREAM","content":"y with e"}
+
+data: {"type":"STREAM","content":"ncephalo"}
+
+data: {"type":"STREAM","content":"pathy and"}
+
+data: {"type":"STREAM","content":" may be"}
+
+data: {"type":"STREAM","content":" compl"}
+
+data: {"type":"STREAM","content":"icated by"}
+
+data: {"type":"STREAM","content":" feve"}
+
+data: {"type":"STREAM","content":"r seco"}
+
+data: {"type":"STREAM","content":"ndary "}
+
+data: {"type":"STREAM","content":"to infec"}
+
+data: {"type":"STREAM","content":"tion.["}
+
+data: {"type":"STREAM","content":"doi: 10."}
+
+data: {"type":"STREAM","content":"2478/j"}
+
+data: {"type":"STREAM","content":"tim-2019"}
+
+data: {"type":"STREAM","content":"-0003"}
+
+data: {"type":"STREAM","content":"] Normal b"}
+
+data: {"type":"STREAM","content":"asic metab"}
+
+data: {"type":"STREAM","content":"olic pan"}
+
+data: {"type":"STREAM","content":"el needs"}
+
+data: {"type":"STREAM","content":" verificat"}
+
+data: {"type":"STREAM","content":"ion of sp"}
+
+data: {"type":"STREAM","content":"ecifi"}
+
+data: {"type":"STREAM","content":"c glu"}
+
+data: {"type":"STREAM","content":"cose "}
+
+data: {"type":"STREAM","content":"levels, "}
+
+data: {"type":"STREAM","content":"as hyp"}
+
+data: {"type":"STREAM","content":"erglyce"}
+
+data: {"type":"STREAM","content":"mia o"}
+
+data: {"type":"STREAM","content":"r hyp"}
+
+data: {"type":"STREAM","content":"oglycemia "}
+
+data: {"type":"STREAM","content":"can pr"}
+
+data: {"type":"STREAM","content":"esent with"}
+
+data: {"type":"STREAM","content":" AMS.\n\n4. "}
+
+data: {"type":"STREAM","content":"**Uremi"}
+
+data: {"type":"STREAM","content":"c encepha"}
+
+data: {"type":"STREAM","content":"lopath"}
+
+data: {"type":"STREAM","content":"y**: W"}
+
+data: {"type":"STREAM","content":"ith CKD st"}
+
+data: {"type":"STREAM","content":"age 3"}
+
+data: {"type":"STREAM","content":", ure"}
+
+data: {"type":"STREAM","content":"mia sh"}
+
+data: {"type":"STREAM","content":"ould b"}
+
+data: {"type":"STREAM","content":"e cons"}
+
+data: {"type":"STREAM","content":"idered, "}
+
+data: {"type":"STREAM","content":"though"}
+
+data: {"type":"STREAM","content":" norm"}
+
+data: {"type":"STREAM","content":"al CMP mak"}
+
+data: {"type":"STREAM","content":"es this l"}
+
+data: {"type":"STREAM","content":"ess like"}
+
+data: {"type":"STREAM","content":"ly unle"}
+
+data: {"type":"STREAM","content":"ss crea"}
+
+data: {"type":"STREAM","content":"tinin"}
+
+data: {"type":"STREAM","content":"e has "}
+
+data: {"type":"STREAM","content":"acutely "}
+
+data: {"type":"STREAM","content":"worsened f"}
+
+data: {"type":"STREAM","content":"rom ba"}
+
+data: {"type":"STREAM","content":"seline.\n\n"}
+
+data: {"type":"STREAM","content":"**Most Imp"}
+
+data: {"type":"STREAM","content":"ortant Not"}
+
+data: {"type":"STREAM","content":" to Miss D"}
+
+data: {"type":"STREAM","content":"iagnoses:"}
+
+data: {"type":"STREAM","content":"**\n\n1. **C"}
+
+data: {"type":"STREAM","content":"NS infec"}
+
+data: {"type":"STREAM","content":"tion (me"}
+
+data: {"type":"STREAM","content":"ningit"}
+
+data: {"type":"STREAM","content":"is/ence"}
+
+data: {"type":"STREAM","content":"phalitis)"}
+
+data: {"type":"STREAM","content":"**: Elder"}
+
+data: {"type":"STREAM","content":"ly pat"}
+
+data: {"type":"STREAM","content":"ients wi"}
+
+data: {"type":"STREAM","content":"th fev"}
+
+data: {"type":"STREAM","content":"er an"}
+
+data: {"type":"STREAM","content":"d AMS re"}
+
+data: {"type":"STREAM","content":"quire urg"}
+
+data: {"type":"STREAM","content":"ent e"}
+
+data: {"type":"STREAM","content":"valuation"}
+
+data: {"type":"STREAM","content":" for C"}
+
+data: {"type":"STREAM","content":"NS infe"}
+
+data: {"type":"STREAM","content":"ction, pa"}
+
+data: {"type":"STREAM","content":"rticularly"}
+
+data: {"type":"STREAM","content":" given "}
+
+data: {"type":"STREAM","content":"the pote"}
+
+data: {"type":"STREAM","content":"ntially"}
+
+data: {"type":"STREAM","content":" catastrop"}
+
+data: {"type":"STREAM","content":"hic outcom"}
+
+data: {"type":"STREAM","content":"es if mi"}
+
+data: {"type":"STREAM","content":"ssed.[doi"}
+
+data: {"type":"STREAM","content":": 10.11"}
+
+data: {"type":"STREAM","content":"55/2016"}
+
+data: {"type":"STREAM","content":"/5273651]"}
+
+data: {"type":"STREAM","content":" Lumbar"}
+
+data: {"type":"STREAM","content":" punc"}
+
+data: {"type":"STREAM","content":"ture shoul"}
+
+data: {"type":"STREAM","content":"d be "}
+
+data: {"type":"STREAM","content":"strong"}
+
+data: {"type":"STREAM","content":"ly cons"}
+
+data: {"type":"STREAM","content":"idere"}
+
+data: {"type":"STREAM","content":"d aft"}
+
+data: {"type":"STREAM","content":"er rulin"}
+
+data: {"type":"STREAM","content":"g out elev"}
+
+data: {"type":"STREAM","content":"ated "}
+
+data: {"type":"STREAM","content":"intracra"}
+
+data: {"type":"STREAM","content":"nial pr"}
+
+data: {"type":"STREAM","content":"essure.\n\n2"}
+
+data: {"type":"STREAM","content":". **Non-c"}
+
+data: {"type":"STREAM","content":"onvulsive"}
+
+data: {"type":"STREAM","content":" stat"}
+
+data: {"type":"STREAM","content":"us epi"}
+
+data: {"type":"STREAM","content":"lepticu"}
+
+data: {"type":"STREAM","content":"s (NCSE)**"}
+
+data: {"type":"STREAM","content":": NCS"}
+
+data: {"type":"STREAM","content":"E shoul"}
+
+data: {"type":"STREAM","content":"d be c"}
+
+data: {"type":"STREAM","content":"onside"}
+
+data: {"type":"STREAM","content":"red in a"}
+
+data: {"type":"STREAM","content":"ll eld"}
+
+data: {"type":"STREAM","content":"erly pat"}
+
+data: {"type":"STREAM","content":"ients p"}
+
+data: {"type":"STREAM","content":"resent"}
+
+data: {"type":"STREAM","content":"ing wi"}
+
+data: {"type":"STREAM","content":"th ac"}
+
+data: {"type":"STREAM","content":"ute confu"}
+
+data: {"type":"STREAM","content":"sional "}
+
+data: {"type":"STREAM","content":"state, "}
+
+data: {"type":"STREAM","content":"even wh"}
+
+data: {"type":"STREAM","content":"en a presu"}
+
+data: {"type":"STREAM","content":"med sym"}
+
+data: {"type":"STREAM","content":"ptomati"}
+
+data: {"type":"STREAM","content":"c cause"}
+
+data: {"type":"STREAM","content":" exists."}
+
+data: {"type":"STREAM","content":"[doi: 10."}
+
+data: {"type":"STREAM","content":"1016/j.jns"}
+
+data: {"type":"STREAM","content":".2020.1"}
+
+data: {"type":"STREAM","content":"16674"}
+
+data: {"type":"STREAM","content":"] It "}
+
+data: {"type":"STREAM","content":"can prese"}
+
+data: {"type":"STREAM","content":"nt with"}
+
+data: {"type":"STREAM","content":"out obviou"}
+
+data: {"type":"STREAM","content":"s seizure"}
+
+data: {"type":"STREAM","content":" activity "}
+
+data: {"type":"STREAM","content":"and requ"}
+
+data: {"type":"STREAM","content":"ires EE"}
+
+data: {"type":"STREAM","content":"G for "}
+
+data: {"type":"STREAM","content":"diagnos"}
+
+data: {"type":"STREAM","content":"is.\n\n3. "}
+
+data: {"type":"STREAM","content":"**Acute "}
+
+data: {"type":"STREAM","content":"stroke"}
+
+data: {"type":"STREAM","content":" or intrac"}
+
+data: {"type":"STREAM","content":"rania"}
+
+data: {"type":"STREAM","content":"l hemo"}
+
+data: {"type":"STREAM","content":"rrhage**:"}
+
+data: {"type":"STREAM","content":" Neurolog"}
+
+data: {"type":"STREAM","content":"ical ca"}
+
+data: {"type":"STREAM","content":"uses are "}
+
+data: {"type":"STREAM","content":"common in"}
+
+data: {"type":"STREAM","content":" elde"}
+
+data: {"type":"STREAM","content":"rly pat"}
+
+data: {"type":"STREAM","content":"ients"}
+
+data: {"type":"STREAM","content":" with"}
+
+data: {"type":"STREAM","content":" AMS."}
+
+data: {"type":"STREAM","content":"[doi: 10.1"}
+
+data: {"type":"STREAM","content":"016/j.ajem"}
+
+data: {"type":"STREAM","content":".2016.1"}
+
+data: {"type":"STREAM","content":"0.004] "}
+
+data: {"type":"STREAM","content":"Vascu"}
+
+data: {"type":"STREAM","content":"lar risk "}
+
+data: {"type":"STREAM","content":"factors "}
+
+data: {"type":"STREAM","content":"(HTN, DM2"}
+
+data: {"type":"STREAM","content":") inc"}
+
+data: {"type":"STREAM","content":"rease str"}
+
+data: {"type":"STREAM","content":"oke likel"}
+
+data: {"type":"STREAM","content":"ihood."}
+
+data: {"type":"STREAM","content":"\n\n**Ke"}
+
+data: {"type":"STREAM","content":"y Piece"}
+
+data: {"type":"STREAM","content":"s of Add"}
+
+data: {"type":"STREAM","content":"itional "}
+
+data: {"type":"STREAM","content":"History a"}
+
+data: {"type":"STREAM","content":"nd Follow-"}
+
+data: {"type":"STREAM","content":"Up Test"}
+
+data: {"type":"STREAM","content":"s:**\n\n**"}
+
+data: {"type":"STREAM","content":"History**"}
+
+data: {"type":"STREAM","content":": Medicat"}
+
+data: {"type":"STREAM","content":"ion revie"}
+
+data: {"type":"STREAM","content":"w (parti"}
+
+data: {"type":"STREAM","content":"cularly s"}
+
+data: {"type":"STREAM","content":"edatives,"}
+
+data: {"type":"STREAM","content":" opioids, "}
+
+data: {"type":"STREAM","content":"antichol"}
+
+data: {"type":"STREAM","content":"inerg"}
+
+data: {"type":"STREAM","content":"ics), bas"}
+
+data: {"type":"STREAM","content":"eline c"}
+
+data: {"type":"STREAM","content":"ognit"}
+
+data: {"type":"STREAM","content":"ive sta"}
+
+data: {"type":"STREAM","content":"tus, "}
+
+data: {"type":"STREAM","content":"recent fa"}
+
+data: {"type":"STREAM","content":"lls, "}
+
+data: {"type":"STREAM","content":"focal"}
+
+data: {"type":"STREAM","content":" neurol"}
+
+data: {"type":"STREAM","content":"ogica"}
+
+data: {"type":"STREAM","content":"l sympt"}
+
+data: {"type":"STREAM","content":"oms, urina"}
+
+data: {"type":"STREAM","content":"ry/re"}
+
+data: {"type":"STREAM","content":"spirato"}
+
+data: {"type":"STREAM","content":"ry sympt"}
+
+data: {"type":"STREAM","content":"oms, p"}
+
+data: {"type":"STREAM","content":"olyphar"}
+
+data: {"type":"STREAM","content":"macy a"}
+
+data: {"type":"STREAM","content":"ssessmen"}
+
+data: {"type":"STREAM","content":"t.[doi: 1"}
+
+data: {"type":"STREAM","content":"0.1001/j"}
+
+data: {"type":"STREAM","content":"ama.2017.1"}
+
+data: {"type":"STREAM","content":"2067]\n\n**"}
+
+data: {"type":"STREAM","content":"Physi"}
+
+data: {"type":"STREAM","content":"cal exa"}
+
+data: {"type":"STREAM","content":"m**: De"}
+
+data: {"type":"STREAM","content":"tailed neu"}
+
+data: {"type":"STREAM","content":"rological "}
+
+data: {"type":"STREAM","content":"examina"}
+
+data: {"type":"STREAM","content":"tion for"}
+
+data: {"type":"STREAM","content":" focal de"}
+
+data: {"type":"STREAM","content":"ficits, me"}
+
+data: {"type":"STREAM","content":"ningea"}
+
+data: {"type":"STREAM","content":"l signs, "}
+
+data: {"type":"STREAM","content":"assessme"}
+
+data: {"type":"STREAM","content":"nt using "}
+
+data: {"type":"STREAM","content":"Confu"}
+
+data: {"type":"STREAM","content":"sion As"}
+
+data: {"type":"STREAM","content":"sessme"}
+
+data: {"type":"STREAM","content":"nt Metho"}
+
+data: {"type":"STREAM","content":"d.[doi"}
+
+data: {"type":"STREAM","content":": 10.1"}
+
+data: {"type":"STREAM","content":"056/N"}
+
+data: {"type":"STREAM","content":"EJMcp1605"}
+
+data: {"type":"STREAM","content":"501]\n\n**La"}
+
+data: {"type":"STREAM","content":"borat"}
+
+data: {"type":"STREAM","content":"ory**: Bl"}
+
+data: {"type":"STREAM","content":"ood glucos"}
+
+data: {"type":"STREAM","content":"e, urinaly"}
+
+data: {"type":"STREAM","content":"sis with "}
+
+data: {"type":"STREAM","content":"culture,"}
+
+data: {"type":"STREAM","content":" blood cu"}
+
+data: {"type":"STREAM","content":"ltures "}
+
+data: {"type":"STREAM","content":"if toxic "}
+
+data: {"type":"STREAM","content":"appearanc"}
+
+data: {"type":"STREAM","content":"e, sp"}
+
+data: {"type":"STREAM","content":"ecific "}
+
+data: {"type":"STREAM","content":"review"}
+
+data: {"type":"STREAM","content":" of cr"}
+
+data: {"type":"STREAM","content":"eatinin"}
+
+data: {"type":"STREAM","content":"e tren"}
+
+data: {"type":"STREAM","content":"d fro"}
+
+data: {"type":"STREAM","content":"m baseline"}
+
+data: {"type":"STREAM","content":".[doi: 10"}
+
+data: {"type":"STREAM","content":".5811/wes"}
+
+data: {"type":"STREAM","content":"tjem.2018."}
+
+data: {"type":"STREAM","content":"1.36559]"}
+
+data: {"type":"STREAM","content":"\n\n**Imagi"}
+
+data: {"type":"STREAM","content":"ng**: No"}
+
+data: {"type":"STREAM","content":"n-con"}
+
+data: {"type":"STREAM","content":"trast"}
+
+data: {"type":"STREAM","content":" head "}
+
+data: {"type":"STREAM","content":"CT (yi"}
+
+data: {"type":"STREAM","content":"elds abno"}
+
+data: {"type":"STREAM","content":"rmal findi"}
+
+data: {"type":"STREAM","content":"ngs in"}
+
+data: {"type":"STREAM","content":" ~23%"}
+
+data: {"type":"STREAM","content":" of I"}
+
+data: {"type":"STREAM","content":"CU patient"}
+
+data: {"type":"STREAM","content":"s with AM"}
+
+data: {"type":"STREAM","content":"S).[doi:"}
+
+data: {"type":"STREAM","content":" 10.1097/"}
+
+data: {"type":"STREAM","content":"CCM.0000"}
+
+data: {"type":"STREAM","content":"000000"}
+
+data: {"type":"STREAM","content":"002005"}
+
+data: {"type":"STREAM","content":"]\n\n**A"}
+
+data: {"type":"STREAM","content":"ddition"}
+
+data: {"type":"STREAM","content":"al tests**"}
+
+data: {"type":"STREAM","content":": Chest X"}
+
+data: {"type":"STREAM","content":"-ray, EEG "}
+
+data: {"type":"STREAM","content":"if NCSE"}
+
+data: {"type":"STREAM","content":" suspec"}
+
+data: {"type":"STREAM","content":"ted, lum"}
+
+data: {"type":"STREAM","content":"bar p"}
+
+data: {"type":"STREAM","content":"unctur"}
+
+data: {"type":"STREAM","content":"e if CNS"}
+
+data: {"type":"STREAM","content":" infe"}
+
+data: {"type":"STREAM","content":"ction c"}
+
+data: {"type":"STREAM","content":"onsid"}
+
+data: {"type":"STREAM","content":"ered "}
+
+data: {"type":"STREAM","content":"and n"}
+
+data: {"type":"STREAM","content":"o contra"}
+
+data: {"type":"STREAM","content":"indica"}
+
+data: {"type":"STREAM","content":"tions.[do"}
+
+data: {"type":"STREAM","content":"i: 10.101"}
+
+data: {"type":"STREAM","content":"6/j.jns"}
+
+data: {"type":"STREAM","content":".2020.116"}
+
+data: {"type":"STREAM","content":"674][doi: "}
+
+data: {"type":"STREAM","content":"10.1155/"}
+
+data: {"type":"STREAM","content":"2016/"}
+
+data: {"type":"STREAM","content":"5273651"}
+
+data: {"type":"STREAM","content":"]"}
+
+data: {"type":"NodeChunk","content":{"nodeName":"SEARCH_STEPS","content":[{"text":"Analyzing your clinical question...","isCompleted":true,"info":"Medication-related question—retrieving the most relevant drug data."},{"text":"Developing search strategy...","isCompleted":true},{"text":"Searching peer-reviewed literature...","isCompleted":true},{"text":"Synthesizing research findings...","isCompleted":true},{"text":"Formulating evidence-based response...","isCompleted":true}]}}
+
