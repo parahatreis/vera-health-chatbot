@@ -200,7 +200,7 @@ export default function ChatbotScreen() {
           data={listData}
           renderItem={renderItem}
           getItemType={getItemType}
-          keyExtractor={(item, index) => {
+          keyExtractor={(item) => {
             if (item.type === 'qa') return item.data.id;
             if (item.type === 'error') return 'error';
             if (item.type === 'load-more') return 'load-more';
